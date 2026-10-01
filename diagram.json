@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 60, "left": 0, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 20, "left": 330, "attrs": { "transistor": "npn" } },
+    { "type": "wokwi-pushbutton", "id": "target", "top": 240, "left": 320, "attrs": { "color": "green", "label": "Car hits target" } },
+    { "type": "wokwi-dc-motor", "id": "motor", "top": 150, "left": 560, "attrs": {} },
+    { "type": "wokwi-rc522", "id": "rfid", "top": -120, "left": 340, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "rIr", "top": 310, "left": 520, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "irLed", "top": 300, "left": 600, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "uno:4", "relay1:IN", "green", [] ],
+    [ "uno:5V", "relay1:VCC", "red", [] ],
+    [ "uno:GND.1", "relay1:GND", "black", [] ],
+    [ "uno:5V", "relay1:COM", "red", [] ],
+    [ "relay1:NO", "motor:+", "orange", [] ],
+    [ "motor:-", "uno:GND.1", "black", [] ],
+    [ "uno:2", "target:1.l", "green", [] ],
+    [ "target:2.l", "uno:GND.1", "black", [] ],
+    [ "uno:3", "rIr:1", "purple", [] ],
+    [ "rIr:2", "irLed:A", "purple", [] ],
+    [ "irLed:C", "uno:GND.1", "black", [] ],
+    [ "uno:10", "rfid:SDA", "green", [] ],
+    [ "uno:13", "rfid:SCK", "green", [] ],
+    [ "uno:11", "rfid:MOSI", "green", [] ],
+    [ "uno:12", "rfid:MISO", "green", [] ],
+    [ "uno:9", "rfid:RST", "green", [] ],
+    [ "uno:3.3V", "rfid:3.3V", "red", [] ],
+    [ "uno:GND.1", "rfid:GND", "black", [] ]
+  ],
+  "dependencies": {}
+}
