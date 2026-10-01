@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "build/RubeGoldberg.ino.hex"
+elf = "build/RubeGoldberg.ino.elf"
